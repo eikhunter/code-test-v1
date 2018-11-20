@@ -1,0 +1,385 @@
+@import "./app";
+
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+| @namespace: hd-
+|
+*/
+.hd-Header {
+  display: block;
+  border-bottom: 1px solid var(--Color_Brand);
+}
+
+.hd-Header_Inner {
+  @include Grid_Container;
+}
+
+.hd-Header_Body {
+  align-items: center;
+  justify-content: space-between;
+
+  display: flex;
+}
+
+.hd-Header_LogoContainer {
+  display: flex;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Navigation
+|--------------------------------------------------------------------------
+| @namespace: nav-
+|
+*/
+.nav-Navigation {
+  display: none;
+
+  @include sm {
+    display: block;
+  }
+}
+
+.nav-Navigation_Items {
+  align-items: center;
+
+  display: flex;
+  margin: 0 -16px;
+}
+
+.nav-Navigation_Item {
+  margin: 0 var(--Grid_Gutter);
+}
+
+.nav-Navigation_Link {
+  @include Font_14-18;
+
+  position: relative;
+
+  letter-spacing: 1px;
+  font-weight: 500;
+
+  overflow: hidden;
+
+  color: var(--Color_Brand-grey-light);
+
+  .nav-Navigation_Item:hover & {
+    color: var(--Color_Brand);
+
+    &::before {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 105%;
+    height: 2px;
+    transform: translateX(-50%) scaleX(0);
+
+    background-color: var(--Color_Brand);
+
+    transition: transform var(--Global_Transition);
+  }
+}
+
+.hd-Header_Button {
+  color: var(--Color_Brand);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Footer
+|--------------------------------------------------------------------------
+| @namespace: ft-
+|
+*/
+.ft-Footer {
+  padding: 5px 0 20px;
+
+  background-color: var(--Color_Brand-grey-light);
+
+  color: #fff;
+}
+
+.ft-Footer_Inner {
+  @include Grid_Container;
+}
+
+.ft-Footer_Body {
+  justify-content: space-between;
+  display: flex;
+}
+
+.ft-Footer_Items {
+  display: flex;
+  margin: 0 -6px;
+}
+
+.ft-Footer_Item {
+  margin: 0 6px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Privacy
+|--------------------------------------------------------------------------
+| @namespace: ft-
+|
+*/
+.ft-Privacy {
+  padding: 5px 0;
+
+  background-color: var(--Color_Brand-grey);
+}
+
+.ft-Privacy_Inner {
+  @include Grid_Container;
+}
+
+.ft-Privacy_Items {
+  display: flex;
+  margin: 0 -6px;
+}
+
+.ft-Privacy_Item {
+  margin: 0 6px;
+}
+
+.ft-Privacy_Link {
+  font-weight: 400;
+
+  color: #fff;
+
+  transition: color var(--Global_Transition);
+
+  &:hover {
+    color: var(--Color_Brand);
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| List
+|--------------------------------------------------------------------------
+| @namespace: lst-
+|
+*/
+.lst-List {
+  margin: 20px 0 80px;
+}
+
+.lst-List_Inner {
+  @include Grid_Container;
+}
+
+.lst-List_Items {
+  flex-wrap: wrap;
+
+  display: flex;
+  margin: 0 -16px;
+}
+
+.lst-List_Item {
+  display: flex;
+  margin: 16px var(--Grid_Gutter) 0;
+
+  @include sm {
+    width: calc(6 / 12 * 100% - var(--Grid_Gutter) * 2);
+    margin: calc(var(--Grid_Gutter) * 2) var(--Grid_Gutter) 0;
+  }
+
+  @include md {
+    width: calc(4 / 12 * 100% - var(--Grid_Gutter) * 2);
+  }
+
+  @include lg {
+    width: calc(3 / 12 * 100% - var(--Grid_Gutter) * 2);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:nth-child(-n + 2) {
+    @include sm {
+      margin-top: 0;
+    }
+  }
+
+  &:nth-child(-n + 3) {
+    @include md {
+      margin-top: 0;
+    }
+  }
+
+  &:nth-child(-n + 4) {
+    @include md {
+      margin-top: 0;
+    }
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Card
+|--------------------------------------------------------------------------
+| @namespace: prd-
+|
+*/
+.prd-Card {
+  text-align: center;
+}
+
+.prd-Card_Title {
+  @include Font_24-34;
+
+  margin-bottom: 16px;
+}
+
+.prd-Card_Button {
+  @include Button-primary;
+
+  margin-top: 16px;
+}
+
+.prd-Card_Prices {
+  justify-content: center;
+
+  display: flex;
+  margin: 0 -6px;
+}
+
+.prd-Card_Price {
+  @include Font_18-32;
+
+  margin: 0 6px;
+
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  color: var(--Color_Brand-grey);
+}
+
+.prd-Card_Price-original {
+  position: relative;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+
+    height: 2px;
+
+    background-color: var(--Color_Brand-grey);
+
+    transform: translateY(-50%);
+  }
+}
+
+.prd-Card_Price-final {
+  color: var(--Color_Brand-red);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Filters
+|--------------------------------------------------------------------------
+| @namespace: flt-
+|
+*/
+.flt-Filters {
+  border-bottom: 1px solid var(--Color_Border);
+}
+
+.flt-Filters_Inner {
+  @include Grid_Container;
+}
+
+.flt-Filters_Items {
+  justify-content: center;
+
+  display: flex;
+  margin: 0 -16px;
+}
+
+.flt-Filters_Item {
+  margin: 0 var(--Grid_Gutter);
+}
+
+.flt-Filters_Button {
+  @include Font_16-32;
+
+  position: relative;
+
+  display: block;
+  padding: 5px;
+
+  border: none;
+  background-color: transparent;
+
+  color: var(--Color_Grey);
+
+  transition: color var(--Global_Transition);
+
+  &:hover {
+    color: var(--Color_Brand);
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    right: 5px;
+    bottom: -1px;
+    left: 5px;
+
+    height: 2px;
+
+    background-color: var(--Color_Brand);
+
+    transform: scaleX(0);
+
+    transition: transform var(--Global_Transition);
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Hero
+|--------------------------------------------------------------------------
+| @namespace: smpl-
+|
+*/
+.smpl-Hero {
+  padding: 60px 0;
+
+  border-bottom: 1px solid var(--Color_Brand);
+
+  text-align: center;
+}
+
+.smpl-Hero_Inner {
+  @include Grid_Container;
+}
+
+.smpl-Hero_Title {
+  font-size: 32px;
+  font-weight: 400;
+
+  color: var(--Color_Brand);
+}
